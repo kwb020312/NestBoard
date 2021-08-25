@@ -1,9 +1,11 @@
-import { Module } from '@nestjs/common';
-import { BoardsController } from './boards.controller';
-import { BoardsService } from './boards.service';
+export interface Board {
+  id: string
+  title: string
+  description: string
+  status: BoardStatus
+}
 
-@Module({
-  controllers: [BoardsController],
-  providers: [BoardsService]
-})
-export class BoardsModule {}
+export enum BoardStatus {
+  PUBLIC = 'PUBLIC',
+  PRIVATE = 'PRIVATE'
+}
