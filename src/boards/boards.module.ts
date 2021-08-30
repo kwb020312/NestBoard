@@ -1,3 +1,9 @@
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { Module } from "@nestjs/common";
+import { BoardRepository } from "./board.repository";
+import { BoardsController } from "./boards.controller";
+import { BoardsService } from "./boards.service";
+
 export interface Board {
   id: string
   title: string
@@ -10,4 +16,14 @@ export enum BoardStatus {
   PRIVATE = 'PRIVATE'
 }
 
-export const BoardsModule: any = {}
+@Module({
+  imports: [
+    TypeOrmModule.forFeature([BoardRepository])
+  ],
+  controllers: [BoardsController],
+  providers: [BoardsService]
+})
+
+export class BoardsModule {
+
+}
