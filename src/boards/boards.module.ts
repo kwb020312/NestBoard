@@ -9,3 +9,5 @@ export enum BoardStatus {
   PUBLIC = 'PUBLIC',
   PRIVATE = 'PRIVATE'
 }
+
+export const BoardsModule: any = {}
