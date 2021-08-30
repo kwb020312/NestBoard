@@ -4,18 +4,6 @@ import { BoardRepository } from "./board.repository";
 import { BoardsController } from "./boards.controller";
 import { BoardsService } from "./boards.service";
 
-export interface Board {
-  id: string
-  title: string
-  description: string
-  status: BoardStatus
-}
-
-export enum BoardStatus {
-  PUBLIC = 'PUBLIC',
-  PRIVATE = 'PRIVATE'
-}
-
 @Module({
   imports: [
     TypeOrmModule.forFeature([BoardRepository])
