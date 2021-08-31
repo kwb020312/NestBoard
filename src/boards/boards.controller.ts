@@ -15,6 +15,12 @@ export class BoardsController {
     getBoardById(@Param('id') id:number) :Promise<Board> {
         return this.boardsService.getBoardById(id)
     }
+
+    @Post()
+    @UsePipes(ValidationPipe)
+    createBoard(@Body() CreateBoardDto: CreateBoardDto): Promise<Board> {
+        return this.boardsService.createBoard(CreateBoardDto)
+    }
 }
     // @Get("/:id")
     // getBoardById(@Param('id') id: string): Board {
